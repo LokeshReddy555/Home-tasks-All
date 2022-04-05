@@ -1,0 +1,166 @@
+header {
+  display: flex;
+  position: relative;
+  align-items: center;
+  background-color: rgb(33, 33, 78);
+  color: white;
+  /* rgb(33, 33, 78);  */
+  height: 80px;
+}
+
+header div {
+  width: 15%;
+  margin-left: 40%;
+  background-color: white;
+  position: absolute;
+  color: rgb(33, 33, 78);
+  text-align: center;
+  border-width: 2px;
+  border-style: solid;
+  border-color: red;
+  height: 50px;
+  padding-bottom: 0.5rem;
+  overflow: hidden;
+}
+
+header #main-heading {
+  font-size: larger;
+  font-weight: bold;
+}
+
+header #secondary-heading {
+  font-size: xx-small;
+  font-weight: bolder;
+  margin-top: -0.5rem;
+}
+
+@media screen and (max-width: 795px) {
+  header div {
+    float: none;
+    display: block;
+    text-align: center;
+    overflow: scroll;
+  }
+}
+
+/******************************************************************************************************/
+.header-2 {
+  /****Imp****/
+  margin-left: 5%;
+  margin-top: 2%;
+  display: flex;
+  column-gap: 20%;
+  flex-shrink: 2;
+}
+
+.dropdown {
+  width: 120%;
+}
+
+.header-2 #element2 {
+  margin-left: 6%;
+  font-family: "Trirong", serif;
+}
+
+.header-2 #btn {
+  background-color: black;
+  color: white;
+  margin-left: -2%;
+}
+
+@media screen and (max-width: 655px) {
+  .header-2 {
+    display: block;
+  }
+
+  .header-2 #element2 {
+    text-align: center;
+  }
+
+  .dropdown {
+    width: 40%;
+  }
+}
+
+/*******************************************************************************************************/
+hr {
+  height: 1px;
+  background-color: rgb(33, 33, 78);
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 2%;
+}
+
+.lite {
+
+  background-color: white;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+/*******************************************************************************************************/
+img {
+  width: 90%;
+  margin-top: 10%;
+}
+
+.container {
+  margin-left: 5%;
+  display: flex;
+}
+
+.image {
+  flex-shrink: 0;
+}
+
+.info {
+  width: 60%;
+  padding-left: 1%;
+}
+
+.info .newstitle {
+  color: rgb(33, 33, 78);
+}
+
+.info .timestamp {
+  color: rgb(154, 146, 146);
+  margin-top: -2%;
+}
+
+.info>.btn {
+  background-color: rgb(255, 98, 0);
+  border: none;
+  color: white;
+  padding: 8px 28px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+}
+
+@media screen and (max-width: 375px) {
+  .container {
+    display: block;
+  }
+
+  .header {
+    display: inline;
+  }
+}
+
+/*********************************************************************************************************/
+footer {
+  background-color: rgb(33, 33, 78);
+  color: white;
+  /* rgb(33, 33, 78);  */
+  height: 50px;
+  text-align: center;
+  width: 100%;
+  /*position:fixed;           remove this if not required */
+  bottom: 0;
+  left: 0;
+}
+
+#footerid {
+  padding-top: 1.2%;
+}

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="hometask1.css">
+  <!--adding google fonts-->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Trirong">
+  <title>Home task - 1</title>
+</head>
+
+<body>
+
+  <header>
+    <div class="header-1">
+      <h1 id="main-heading"> NEWS BLOG </h1>
+      <h6 id="secondary-heading"> WORLDWIDE NEWS </h6>
+    </div>
+  </header>
+
+  <div class="header-2">
+    <!-- <label for="select">SELECT CATEGORY</label> -->
+    <div class="element1">
+      <p> <b> SELECT CATEGORY </b> </p>
+      <select class="dropdown" name="category">
+        <!--because of flex issue with dropdown-->
+        <option value="All">All</option>
+        <option value="Sports">Sports</option>
+        <option value="Business">Business</option>
+      </select>
+    </div>
+
+    <h2 id="element2"> ALL NEWS </h2>
+    <div class="element3">
+      <p> <b> SUBSCRIBE </b> </p>
+      <form id="form">
+        <input type="search" id="search" placeholder="Email Address">
+        <button id="btn">Subscribe</button>
+      </form>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="container">
+    <div class="image">
+      <img src="https://img.medscapestatic.com/thumbnail_library/022620_CoronaVirusReferenceCenter_bnr_800x450.jpg"
+        alt="corona news" width="130" height="130">
+    </div>
+    <div class="info">
+      <h2 class="newstitle">News 1</h2>
+      <p class="timestamp">Posted on <b>29 June, 2019</b> # Category: <b>Category One</b></p>
+      <p>The virus can spread from an infected person’s mouth or nose in small liquid
+        particles when they cough, sneeze, speak, sing or breathe. These particles range from larger
+        respiratory droplets to smaller aerosols. It is important to practice respiratory etiquette.
+      </p>
+      <button class="btn"
+        onclick="window.location.href = 'https://timesofindia.indiatimes.com/topic/health-and-knowledge-resource-centre/news'">
+        Continue Reading </button>
+    </div>
+  </div>
+
+  <hr class="lite">
+
+  <div class="container">
+    <div class="image">
+      <img
+        src="https://ichef.bbci.co.uk/news/640/cpsprodpb/1185C/production/_123427717_4a97aa3d-36ca-4021-a2ae-b33f9663ef69.jpg"
+        alt="Ukraine scenes" width="130" height="130">
+    </div>
+    <div class="info">
+      <h2 class="newstitle">News 2</h2>
+      <p class="timestamp">Posted on <b>22 June, 2019</b> # Category: <b>Category Two</b></p>
+      <p>Russia-Ukraine War LIVE Updates: Ukrainian President Volodymyr Zelensky said, "There will be battles ahead. We
+        still need to go down a very difficult path to get everything we want."</p>
+      <button class="btn"
+        onclick="window.location.href = 'https://www.ndtv.com/world-news/russia-ukraine-war-live-updates-russian-pledges-to-ease-ukraine-attack-west-sceptical-2855893'">
+        Continue Reading </button>
+    </div>
+  </div>
+
+  <hr class="lite">
+
+  <div class="container">
+    <div class="image">
+      <img src="https://resize.indiatvnews.com/en/resize/newbucket/1200_-/2021/04/migrants-1618232758.jpg"
+        alt="public rush" width="130" height="130">
+    </div>
+    <div class="info">
+      <h2 class="newstitle">News 3</h2>
+      <p class="timestamp">Posted on <b>20 June, 2019</b> # Category: <b>Category Three</b></p>
+      <p>PATNA: With the conclusion of celebrations on Saturday, the rush at railway stations and bus depots in the city
+        has increased as
+        people have started returning to their workplaces. Those who had not booked their tickets.
+        in advance are facing a tough time as airfares have increased drastically.</p>
+      <button class="btn"
+        onclick="window.location.href = 'https://timesofindia.indiatimes.com/city/patna/post-holi-rush-airfares-up-berth-unavailable-in-trains/articleshow/90342113.cms'">
+        Continue Reading </button>
+    </div>
+  </div>
+
+  <footer>
+    <h5 id="footerid"> &#169; NewsFeed 2019</h5>
+  </footer>
+</body>
+
+</html>

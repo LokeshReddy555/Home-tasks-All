@@ -1,0 +1,25 @@
+https://developer.mozilla.org/en-US/docs/Web/CSS/position
+https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox
+https://google.github.io/styleguide/htmlcssguide.html
+
+
+https://www.w3schools.com/css/tryit.asp?filename=trycss_border-style
+https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Aligning_Items_in_a_Flex_Container
+https://ishadeed.com/article/spacing-in-css/
+https://www.w3schools.com/cssref/pr_font_weight.asp
+https://www.w3schools.com/css/css_combinators.asp ***
+https://www.uvm.edu/~bnelson/computer/css/becarefulwhenyousizeyourdivs.html
+https://www.codegrepper.com/code-examples/html/how+to+make+div+responsive+in+html+css
+https://befused.com/css/flexbox-prevent-image-shrinking/  *****
+https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Typical_Use_Cases_of_Flexbox#why_choose_flexbox
+https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Controlling_Ratios_of_Flex_Items_Along_the_Main_Ax
+https://stackoverflow.com/questions/4938716/align-div-elements-side-by-side  **
+https://pagedart.com/blog/how-to-add-a-search-bar-in-html/ **
+https://www.tutorialrepublic.com/faq/how-to-change-the-color-of-an-hr-element-using-css.php  **
+https://stackoverflow.com/questions/18567708/how-to-have-image-and-text-side-by-side
+https://www.w3schools.com/html/html_symbols.asp
+https://blog.hubspot.com/website/center-div-css  ***
+https://stackoverflow.com/questions/2906582/how-to-create-an-html-button-that-acts-like-a-link
+https://www.carnaghan.com/knowledge-base/how-to-adjust-the-width-of-a-html-combobox-drop-down-box-or-select-box/
+https://usefulangle.com/post/351/css-flex-fixed-width-item
+https://coryrylan.com/blog/css-gap-space-with-flexbox
