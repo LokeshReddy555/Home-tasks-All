@@ -15,9 +15,7 @@ header div {
   position: absolute;
   color: rgb(33, 33, 78);
   text-align: center;
-  border-width: 2px;
-  border-style: solid;
-  border-color: red;
+  border: 2px solid red;
   height: 50px;
   padding-bottom: 0.5rem;
   overflow: hidden;
