@@ -1,6 +1,6 @@
 header > .header-1 {
   display: flex;
-  column-gap: 1opx;
+  column-gap: 10px;
   background-color: whitesmoke;
   color: black;
   height: 80px;
