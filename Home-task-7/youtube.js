@@ -9,16 +9,16 @@ var pagination = {
     finaltot: 20                              //for preserving
 }
 var API_req = `https://www.googleapis.com/youtube/v3/search?part=snippet&key=AIzaSyAKceI9-ceyhFx10ihd3iHFAvQDRXjCUcY&type=video&maxResults=${pagination.finaltot}`;
-var table,thead,tbody;      //Imp **
+var table, thead, tbody;      //Imp **
 
 //videos per page calculation
-vidPerPage.addEventListener('change',function(){             
+vidPerPage.addEventListener('change', function () {
     pagination.range = Number(vidPerPage.value);
     pagination.end = Number(vidPerPage.value);
     pagination.tot = pagination.finaltot;                  //Imp
     pagination.pages = pagination.tot / pagination.range;
     extra = pagination.tot % pagination.range;
-  
+
 });
 
 //default - 3pages
@@ -29,7 +29,7 @@ var extra = pagination.tot % pagination.range;
 let submitEvent = document.querySelector('#btn');
 submitEvent.addEventListener('click', function () {
 
-    var searchInput = document.querySelector("#search").value;                      
+    var searchInput = document.querySelector("#search").value;
     // var searchInput = document.getElementById("search").value;
     console.log(searchInput);
 
@@ -66,7 +66,7 @@ function computeNext() {
         pagination.start = pagination.finaltot - pagination.range;
         return -1;
     }
-    if(pagination.finaltot - pagination.end >= pagination.range) {
+    if (pagination.finaltot - pagination.end >= pagination.range) {
         pagination.end += pagination.range;
     }
     else {
@@ -74,19 +74,19 @@ function computeNext() {
         console.log(pagination.end);
     }
 
-   // document.getElementById('container').removeChild(table);
+    // document.getElementById('container').removeChild(table);
 }
 
 // Calculation for prev button in pagination
 function computePrev() {
-    if(pagination.end == pagination.finaltot && pagination.finaltot%pagination.range != 0) {
-        pagination.end -= (pagination.finaltot%pagination.range);
+    if (pagination.end == pagination.finaltot && pagination.finaltot % pagination.range != 0) {
+        pagination.end -= (pagination.finaltot % pagination.range);
         pagination.start = pagination.end - pagination.range;
     }
 
     else {
-    pagination.start -= pagination.range;
-    pagination.end -= pagination.range;
+        pagination.start -= pagination.range;
+        pagination.end -= pagination.range;
     }
 
     if (pagination.start < 0) {
@@ -100,14 +100,14 @@ function computePrev() {
 
 // Calculation for number buttons in pagination
 function computeNumberedPage(pgno) {
-    if((pgno)*pagination.range > pagination.finaltot) {
+    if ((pgno) * pagination.range > pagination.finaltot) {
         pagination.end = pagination.finaltot;
-        pagination.start = pagination.end - (pagination.finaltot%pagination.range);
+        pagination.start = pagination.end - (pagination.finaltot % pagination.range);
     }
 
     else {
-     pagination.start = (pgno - 1) * pagination.range;
-     pagination.end = pagination.start + pagination.range;
+        pagination.start = (pgno - 1) * pagination.range;
+        pagination.end = pagination.start + pagination.range;
     }
     // document.getElementById('container').removeChild(table);
 }
@@ -146,55 +146,55 @@ function renderTableOutline() {
 function embedVideos(data, incoming) {
     var check = 0;
     if (incoming === "next") {
-       check = computeNext();
+        check = computeNext();
     }
     else if (incoming === "previous") {
-       check = computePrev();
+        check = computePrev();
     }
     else if (typeof incoming === "number") {
-       check = computeNumberedPage(incoming);
+        check = computeNumberedPage(incoming);
     }
     else {
-    renderTableOutline();
+        renderTableOutline();
     }
-    if(check != -1) {
-    tbody.innerHTML = "";
+    if (check != -1) {
+        tbody.innerHTML = "";
 
-    var st = pagination.start;
-    var en = pagination.end;
-    //console.log(st+" "+en);
+        var st = pagination.start;
+        var en = pagination.end;
+        //console.log(st+" "+en);
 
-    //adding videos into page
-    while (st < en) {
-        console.log(st+" "+en);
-        var description = data.items[st].snippet.description;
-        var channel = data.items[st].snippet.channelTitle;
-        var publishtime = data.items[st].snippet.publishTime;
-        var thumbnail = data.items[st].snippet.thumbnails.high.url;
-        var link = data.items[st].id.videoId;
-        var title = data.items[st].snippet.title;
-        st++;
-        console.log(thumbnail);
+        //adding videos into page
+        while (st < en) {
+            console.log(st + " " + en);
+            var description = data.items[st].snippet.description;
+            var channel = data.items[st].snippet.channelTitle;
+            var publishtime = data.items[st].snippet.publishTime;
+            var thumbnail = data.items[st].snippet.thumbnails.high.url;
+            var link = data.items[st].id.videoId;
+            var title = data.items[st].snippet.title;
+            st++;
+            console.log(thumbnail);
 
-        // Creating and adding data row of the table
-        let row = document.createElement('tr');
-        let row_data_0 = document.createElement('td');
-        row_data_0.innerHTML = `<img width="200" height="150" src="${thumbnail}">`;
-        let row_data_1 = document.createElement('td');
-        row_data_1.innerHTML = `<a target="_blank" href="https://www.youtube.com/watch?v=${link}">${title}</a>${description}`;
-        let row_data_2 = document.createElement('td');
-        row_data_2.innerHTML = channel;
-        let row_data_3 = document.createElement('td');
-        row_data_3.innerHTML = publishtime;
+            // Creating and adding data row of the table
+            let row = document.createElement('tr');
+            let row_data_0 = document.createElement('td');
+            row_data_0.innerHTML = `<img width="200" height="150" src="${thumbnail}">`;
+            let row_data_1 = document.createElement('td');
+            row_data_1.innerHTML = `<a target="_blank" href="https://www.youtube.com/watch?v=${link}">${title}</a>${description}`;
+            let row_data_2 = document.createElement('td');
+            row_data_2.innerHTML = channel;
+            let row_data_3 = document.createElement('td');
+            row_data_3.innerHTML = publishtime;
 
-        row.appendChild(row_data_0);
-        row.appendChild(row_data_1);
-        row.appendChild(row_data_2);
-        row.appendChild(row_data_3);
-        tbody.appendChild(row);
+            row.appendChild(row_data_0);
+            row.appendChild(row_data_1);
+            row.appendChild(row_data_2);
+            row.appendChild(row_data_3);
+            tbody.appendChild(row);
 
+        }
     }
-  }
 }
 
 //NumberedPgBtn -- pagination
