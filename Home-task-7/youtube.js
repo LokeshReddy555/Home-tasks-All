@@ -8,42 +8,32 @@ var pagination = {
     tot: 20,
     finaltot: 20                              //for preserving
 }
+var API_req = `https://www.googleapis.com/youtube/v3/search?part=snippet&key=AIzaSyAKceI9-ceyhFx10ihd3iHFAvQDRXjCUcY&type=video&maxResults=${pagination.finaltot}`;
+var table,thead,tbody;      //Imp **
 
-vidPerPage.addEventListener('change',function(){
+//videos per page calculation
+vidPerPage.addEventListener('change',function(){             
     pagination.range = Number(vidPerPage.value);
     pagination.end = Number(vidPerPage.value);
     pagination.tot = pagination.finaltot;                  //Imp
     pagination.pages = pagination.tot / pagination.range;
     extra = pagination.tot % pagination.range;
-    if(extra != 0) {
-        pagination.tot -= extra;
-        --pagination.pages;
-    }
+  
 });
 
 //default - 3pages
 pagination.pages = pagination.tot / pagination.range;
 var extra = pagination.tot % pagination.range;
-if(extra != 0) {
-    pagination.tot -= extra;
-    --pagination.pages;
-}
 
-var API_req = "https://www.googleapis.com/youtube/v3/search?part=snippet&key=AIzaSyAKceI9-ceyhFx10ihd3iHFAvQDRXjCUcY&type=video&maxResults=20";
-//const API_req = "https://randomuser.me/api/";
-// let countOfVideos = 15;
-
+//event triggered when clicking search button
 let submitEvent = document.querySelector('#btn');
 submitEvent.addEventListener('click', function () {
 
-    // var form = document.forms[0];
-    // var selectedValue = form.querySelector('input[id="search"]');
-    // var searchInput = selectedValue.value;
-
-    var searchInput = document.querySelector("#search").value;                        //not working ***
+    var searchInput = document.querySelector("#search").value;                      
     // var searchInput = document.getElementById("search").value;
     console.log(searchInput);
 
+    // for removing previous data
     if (document.querySelector("table") != null) {
         document.getElementById('container').removeChild(table);
         document.getElementById('pagingbtns').innerHTML = "";
@@ -67,59 +57,66 @@ submitEvent.addEventListener('click', function () {
 
 });
 
-function Fn(pgno) {
-    //btn.style.backgroundColor = 'green';
-    let dummy = `btn${pgno}`;
-  //  pgbtn = document.getElementById(`${dummy}`);
-    embedVideos(pagination.data, pgno);
-}
-
-function nextFn() {
-    embedVideos(pagination.data, "next");
-}
-
-function prevFn() {
-    embedVideos(pagination.data, "previous");
-}
-var table;     //***** Imp */
-function embedVideos(data, incoming) {
-
-    if (incoming === "next") {
-        pagination.start += pagination.range;
+// Calculation for next button in pagination
+function computeNext() {
+    pagination.start += pagination.range;
+    if (pagination.end == pagination.finaltot) {
+        alert("This is the last page");
+        pagination.end = pagination.finaltot;
+        pagination.start = pagination.finaltot - pagination.range;
+        return -1;
+    }
+    if(pagination.finaltot - pagination.end >= pagination.range) {
         pagination.end += pagination.range;
-
-        if (pagination.end > pagination.tot) {
-            alert("This is the last page");
-            pagination.end = pagination.tot;
-            pagination.start = pagination.tot - pagination.range;
-            return;
-        }
-        document.getElementById('container').removeChild(table);
     }
-    else if (incoming === "previous") {
-        pagination.start -= pagination.range;
-        pagination.end -= pagination.range;
-
-        if (pagination.start < 0) {
-            alert("This is the first page");
-            pagination.start = 0;
-            pagination.end = pagination.start + pagination.range;
-            return;
-        }
-        document.getElementById('container').removeChild(table);
+    else {
+        pagination.end = pagination.finaltot;
+        console.log(pagination.end);
     }
 
-    else if (typeof incoming === "number") {
+   // document.getElementById('container').removeChild(table);
+}
 
-        pagination.start = (incoming - 1) * pagination.range;
+// Calculation for prev button in pagination
+function computePrev() {
+    if(pagination.end == pagination.finaltot && pagination.finaltot%pagination.range != 0) {
+        pagination.end -= (pagination.finaltot%pagination.range);
+        pagination.start = pagination.end - pagination.range;
+    }
+
+    else {
+    pagination.start -= pagination.range;
+    pagination.end -= pagination.range;
+    }
+
+    if (pagination.start < 0) {
+        alert("This is the first page");
+        pagination.start = 0;
         pagination.end = pagination.start + pagination.range;
-        document.getElementById('container').removeChild(table);
+        return -1;
+    }
+    // document.getElementById('container').removeChild(table);
+}
+
+// Calculation for number buttons in pagination
+function computeNumberedPage(pgno) {
+    if((pgno)*pagination.range > pagination.finaltot) {
+        pagination.end = pagination.finaltot;
+        pagination.start = pagination.end - (pagination.finaltot%pagination.range);
     }
 
+    else {
+     pagination.start = (pgno - 1) * pagination.range;
+     pagination.end = pagination.start + pagination.range;
+    }
+    // document.getElementById('container').removeChild(table);
+}
+
+function renderTableOutline() {
     table = document.createElement('table');
     table.classList.add('table');
-    let thead = document.createElement('thead');
-    let tbody = document.createElement('tbody');
+    thead = document.createElement('thead');
+    tbody = document.createElement('tbody');
 
     table.appendChild(thead);
     table.appendChild(tbody);
@@ -144,10 +141,30 @@ function embedVideos(data, incoming) {
     row_1.appendChild(heading_3);
     thead.appendChild(row_1);
 
+}
+
+function embedVideos(data, incoming) {
+    var check = 0;
+    if (incoming === "next") {
+       check = computeNext();
+    }
+    else if (incoming === "previous") {
+       check = computePrev();
+    }
+    else if (typeof incoming === "number") {
+       check = computeNumberedPage(incoming);
+    }
+    else {
+    renderTableOutline();
+    }
+    if(check != -1) {
+    tbody.innerHTML = "";
+
     var st = pagination.start;
     var en = pagination.end;
     //console.log(st+" "+en);
 
+    //adding videos into page
     while (st < en) {
         console.log(st+" "+en);
         var description = data.items[st].snippet.description;
@@ -164,7 +181,6 @@ function embedVideos(data, incoming) {
         let row_data_0 = document.createElement('td');
         row_data_0.innerHTML = `<img width="200" height="150" src="${thumbnail}">`;
         let row_data_1 = document.createElement('td');
-        // row_data_1.innerHTML = description;
         row_data_1.innerHTML = `<a target="_blank" href="https://www.youtube.com/watch?v=${link}">${title}</a>${description}`;
         let row_data_2 = document.createElement('td');
         row_data_2.innerHTML = channel;
@@ -178,16 +194,25 @@ function embedVideos(data, incoming) {
         tbody.appendChild(row);
 
     }
-
-    /* var row = table.insertRow(-1);  //insert row at last
-     var cell1 = row.insertCell(0);
-     var cell2 = row.insertCell(1);
-     var cell3 = row.insertCell(2);
-     cell1.innerHTML = description;
-     cell2.innerHTML = channel;
-     cell3.innerHTML = publishtime; */
+  }
 }
 
+//NumberedPgBtn -- pagination
+function Fn(pgno) {
+    embedVideos(pagination.data, pgno);
+}
+
+//NextBtn -- pagination
+function nextFn() {
+    embedVideos(pagination.data, "next");
+}
+
+//PrevBtn -- pagination
+function prevFn() {
+    embedVideos(pagination.data, "previous");
+}
+
+//adding pagination -- all buttons(prev,next and numbered buttons)
 function addPages() {
     console.log(pagination.data);
     var pgstart = document.getElementById('pagingbtns');

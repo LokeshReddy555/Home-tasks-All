@@ -1,11 +1,11 @@
 header > .header-1 {
   display: flex;
-  column-gap: 1%;
+  column-gap: 1opx;
   background-color: whitesmoke;
   color: black;
-  height: 0.8%;
+  height: 80px;
   text-align: center;
-  padding-top: 1%;
+  padding-top: 10px;
   align-content: center;
   opacity: 0.8;
 }
@@ -19,7 +19,7 @@ header > .header-1 {
 }*/
 
 #logo{
-    border-radius: 20%;
+    border-radius: 20px;
     width: 80px;
     height: 50px;
     align-self: center;
@@ -28,7 +28,7 @@ header > .header-1 {
 hr {
   height: 1px;
   background-color: rgb(33, 33, 78);
-  margin-top: 2%;
+  margin-top: 20px;
 }
 /* 
 @media screen and (max-width: 375px) {
@@ -40,7 +40,7 @@ hr {
 #pagingbtns {
   display: flex;
   justify-content: center;
-  gap: 5%;
+  gap: 10px;
 }
 
 /* dark theme */
