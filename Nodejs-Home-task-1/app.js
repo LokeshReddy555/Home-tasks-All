@@ -1,13 +1,13 @@
 let data = process.argv.slice(2);  //taking i/p form command line args
 if (data[0] == '--operation') {
     const numsArray = data.slice(2);
-    if (data[1] === 'addition') {
+    if (data[1] === 'addition') {             //addition, n no.of inputs
         let sum = 0;
         if (numsArray.length == 0) {
             console.log("No numbers, so default sum value will be generated");
         }
         for (let i = 0; i < numsArray.length; i++) {
-            if (!isNaN(Number(numsArray[i]))) {
+            if (!isNaN(Number(numsArray[i]))) {       //checking whether given i/p is no. or not
                 sum += Number(numsArray[i]);
             }
             else {
@@ -15,7 +15,7 @@ if (data[0] == '--operation') {
             }
         } console.log(sum);
     }
-    else if (data[1] === 'multiply') {
+    else if (data[1] === 'multiply') {         //multiplication, n no.of inputs 
         let product = 1;
         if (numsArray.length == 0) {
             console.log("No numbers, so default product value will be generated");
@@ -29,7 +29,7 @@ if (data[0] == '--operation') {
             }
         } console.log(product);
     }
-    else if (data[1] === 'subtraction') {
+    else if (data[1] === 'subtraction') {          //subtraction, only 2 inputs
         if (numsArray.length != 2) {
             console.log("Invalid number of arguments for operation");
         }
@@ -42,7 +42,7 @@ if (data[0] == '--operation') {
             }
         }
     }
-    else if (data[1] === 'division') {
+    else if (data[1] === 'division') {          //division, only 2 inputs
         if (numsArray.length != 2) {
             console.log("Invalid number of arguments for operation");
         }
