@@ -6,16 +6,16 @@ import Smoothies from './components/Smoothies';
 import React from 'react'
 
 export default function App() {
-    const [state, setState] = useState("");
+    const [food, setFood] = useState("");
     return (
         <div>
             <h1> Menu </h1>
-            <button className="btn" onClick={() => { setState("Veg") }}> Veg </button>
-            <button className="btn" onClick={() => { setState("Nonveg") }}> Nonveg </button>
-            <button className="btn" onClick={() => { setState("Smoothies") }}> Smoothies </button>
-            {state === "Veg" && <Veg />}
-            {state === "Nonveg" && <Nonveg />}
-            {state === "Smoothies" && <Smoothies />}
+            <button className="btn" onClick={() => { setFood("Veg") }}> Veg </button>
+            <button className="btn" onClick={() => { setFood("Nonveg") }}> Nonveg </button>
+            <button className="btn" onClick={() => { setFood("Smoothies") }}> Smoothies </button>
+            {food === "Veg" && <Veg />}
+            {food === "Nonveg" && <Nonveg />}
+            {food === "Smoothies" && <Smoothies />}
         </div>
     )
 }
