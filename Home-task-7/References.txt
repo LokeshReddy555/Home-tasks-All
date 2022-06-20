@@ -1,0 +1,13 @@
+https://stackoverflow.com/questions/17550871/button-click-event-fires-on-page-reload
+https://stackoverflow.com/questions/15148659/how-can-i-use-queryselector-on-to-pick-an-input-element-by-name
+https://www.w3schools.com/jsref/prop_style_display.asp
+https://www.w3schools.com/jsreF/met_node_appendchild.asp  ***
+https://www.w3schools.com/jsref/met_table_insertrow.asp#:~:text=Definition%20and%20Usage,method%20to%20remove%20a%20row.
+https://www.delftstack.com/howto/javascript/create-table-javascript/#:~:text=To%20create%20an%20HTML%20element,createElement('table')%20.
+****up
+https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML  ***
+https://stackoverflow.com/questions/1357118/event-preventdefault-vs-return-false
+https://stackoverflow.com/questions/22604401/how-to-add-onclick-to-a-html-element-dynamically-using-javascript
+https://stackoverflow.com/questions/35901980/check-if-element-has-child-node-by-id-name
+https://stackoverflow.com/questions/3955229/remove-all-child-elements-of-a-dom-node-in-javascript
+
