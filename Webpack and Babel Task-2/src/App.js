@@ -3,11 +3,11 @@ import React, { useState, Suspense } from 'react';
 const Headlines = React.lazy(() => import('./components/Headlines'));  //lazy loading
 
 export default function App() {
-    const [state, setState] = useState(false);
+    const [click, setClick] = useState(false);
     return (
         <div>
-            <button className="btn" onClick={() => { setState(true) }}> Headlines </button>
-            {state && <Suspense fallback={<div>Loading...</div>}>
+            <button className="btn" onClick={() => { setClick(true) }}> Headlines </button>
+            {click && <Suspense fallback={<div>Loading...</div>}>
                 <Headlines /> </Suspense>}
         </div>
     )
