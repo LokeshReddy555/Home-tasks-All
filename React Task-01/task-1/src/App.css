@@ -1,0 +1,12 @@
+.App {
+  text-align: center;
+  background-color: black;
+  color: aliceblue;
+}
+#img {
+  height: 500px;
+  width: fit-content;
+  align-self: center;
+  margin-top: 20px;
+}
+
