@@ -1,0 +1,9 @@
+a:hover {
+  background-color: rgb(148, 213, 43);
+  color: black;
+}
+
+a {
+  color: hsl(0, 0%, 0%);
+  font-weight: bold;
+}

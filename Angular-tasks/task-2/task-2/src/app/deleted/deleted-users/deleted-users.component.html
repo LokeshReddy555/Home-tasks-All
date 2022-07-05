@@ -1,0 +1,10 @@
+<div class="container">
+  <div *ngFor="let user of userArray" class="list">
+    <div class="" [className]="user.isDeleted == false ? 'active' : 'inactive'">
+      <div>
+        <h5 class="card-title">{{ user.id }}</h5>
+      </div>
+      <a class="btn btn-success">Activate</a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,3 @@
+https://www.techiediaries.com/angular-bootstrap/
+https://angular.io/guide/component-overview
+https://www.tutorialspoint.com/angular4/angular4_event_binding.htm

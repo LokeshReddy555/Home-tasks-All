@@ -1,0 +1,51 @@
+.list {
+  margin-top: 5%;
+  width: 100%;
+  display: flex;
+}
+
+.active {
+  position: relative;
+  width: 100vw;
+  padding: 10px;
+  border: 1px solid rgb(81, 236, 81);
+  margin-top: 1%;
+}
+
+.inactive {
+  position: relative;
+  width: 100vw;
+  padding: 10px;
+  border: 1px solid red;
+  margin-top: 1%;
+}
+
+.btn {
+  width: 50%;
+  margin-left: auto;
+  float: right;
+}
+
+.btn-primary {
+  width: 100px;
+}
+
+.non-act {
+  color: red;
+  margin-left: 25px;
+}
+
+.act {
+  color: rgb(81, 236, 81);
+  margin-left: 25px;
+}
+
+.details {
+  margin-top: 6%;
+  border: 1px solid black;
+  padding: 5%;
+}
+
+table td {
+  padding: 0 30px;
+}

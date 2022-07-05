@@ -1,0 +1,26 @@
+.list {
+  width: 100%;
+  display: flex;
+}
+
+.active {
+  position: relative;
+  width: 100vw;
+  padding: 10px;
+  border: 1px solid rgb(81, 236, 81);
+  margin-top: 1%;
+}
+
+.btn {
+  width: 50%;
+  margin-left: auto;
+  float: right;
+}
+
+.btn-danger {
+  width: 100px;
+}
+
+.inactive {
+  display: none;
+}

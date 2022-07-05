@@ -1,0 +1,26 @@
+.list {
+  width: 100%;
+  display: flex;
+}
+
+.btn {
+  width: 50%;
+  margin-left: auto;
+  float: right;
+}
+
+.btn-success {
+  width: 100px;
+}
+
+.inactive {
+  position: relative;
+  width: 100vw;
+  padding: 10px;
+  border: 1px solid red;
+  margin-top: 1%;
+}
+
+.active {
+  display: none;
+}
